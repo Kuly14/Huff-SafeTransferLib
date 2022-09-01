@@ -1,6 +1,8 @@
 # Any Node Modules
 node_modules/
 
+todo.txt
+
 # Environment Variables
 .env
 .env.prod
