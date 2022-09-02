@@ -4,16 +4,16 @@
 #define function safeApprove(address, address, uint256) nonpayable returns()
 
 #define macro SAFE_TRANSFER_ETH() = takes(2) returns(0) {
-    0x20 0x00                   // [retOffset, retSize, amount, address]
-    0x00 0x00                   // [offset, size, retOffset, retSize, amount, address]
-    dup5                        // [amount, offset, size, retOffset, retSize, amount, address]
-    dup7                        // [addr, amount, offset, size, retOffset, retSize, amount, address]
-    gas                         // [gas, addr, amount, offset, size, retOffset, retSize, amount, address]
-    call                        // [success, amount, address]
+    0x20 0x00           // [retOffset, retSize, amount, address]
+    0x00 0x00           // [offset, size, retOffset, retSize, amount, address]
+    dup5                // [amount, offset, size, retOffset, retSize, amount, address]
+    dup7                // [addr, amount, offset, size, retOffset, retSize, amount, address]
+    gas                 // [gas, addr, amount, offset, size, retOffset, retSize, amount, address]
+    call                // [success, amount, address]
 
-    0x01 eq                     // [0x01 == success, amount, address]
-    success                     // [jumpdest, result, amount, address]
-    jumpi                       // [amount, address]
+    0x01 eq             // [0x01 == success, amount, address]
+    success             // [jumpdest, result, amount, address]
+    jumpi               // [amount, address]
 
   rev:
     0x00 0x00
